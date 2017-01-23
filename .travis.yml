@@ -1,8 +1,15 @@
 matrix:
   include:
-    - os: osx
-      osx_image: xcode8
-    - os: linux
-
+  - os: osx
+    osx_image: xcode8
+  - os: linux
 script:
-  - ./build.sh
+- "./build.sh"
+deploy:
+  provider: releases
+  api_key:
+    secure: OwSrHGBQu0UZ06FgcFVR6VcM84WJq5NuBRF86eDv242Nr0T/GZEG/NjVO0QwXxM0qVgpULCnhjoww++mlimt/Z3ccy7f9pfwFsszHNHTUAXpyT6RjRr/AEkOPb6wXMWsKvzjbpU//kBOVEokOKQUdFtbyzhOFwdj2kMpqlbreZLz/GtEhsNo5TEAHDQPSRLTUPcu4qvIPxw5bxzrPywT5XAgXKLKxZ2uuR/L3v2SZiUoDn8BiQkEw6DYPIva30XuFTcGF3Ryd6C6mIsUjii/+lHamyORm4BvKMqqYh1yIaAuezmqYpftgEsJNgqzJgi3l/TDLY3BbYz5u3HRnxHEXht1ifK00HjERxxsgaFk2O1abfXt/U2DJ5LW5OsGVBiPtEB80q62agbAwxr/ogQM7ugTPTm1Ppu42rt8ilBHixf5JRciDgrAIM25b/3j4unO25HzX5YF1qsPb3116fF7yh3Md9J+223xxbEwe8LIfBtfa1Qg/TWrBxWMahmM92d03PGY6a/L9CyemqUC5uTiRKvDy66WyP+E53KCV0TrbFWzDiOzCN6dyGPMMQ/0pOQLrw9ywjH7XjdGhWDGXvEeX/RlvVEiuG1zUG6qTjlGPm1YuZTnnus0DoNmT1alv7XliYmZYBNF60gL0JoFT6SdH5+wMMuuKKq/TxGB6lh0qyQ=
+  file: 'release-*.*.*.*.*.gz'
+  file_glob: "true"
+  on:
+    repo: johnae/auto-deploy-test
