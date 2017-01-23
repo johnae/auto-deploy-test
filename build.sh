@@ -1,0 +1,8 @@
+#!/bin/sh
+
+TRAVIS_BRANCH=${TRAVIS_BRANCH:-"unknown-branch"}
+TRAVIS_TAG=${TRAVIS_TAG:-"unknown-tag"}
+TRAVIS_BUILD_NUMBER=${TRAVIS_BUILD_NUMBER:-"unknown-build"}
+
+echo "RELEASE-$TRAVIS_BRANCH, TAG-$TRAVIS_TAG, BUILD-$TRAVIS_BUILD_NUMBER" > release.txt
+gzip -c release.txt > release-$TRAVIS_TAG.$TRAVIS_BUILD_NUMBER.$TRAVIS_BRANCH.gz
